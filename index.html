@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather Application</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <header>SheWeathers</header>
+        <div class="cities">
+          <div class="row">
+            <div class="col-12 cities-button">
+              <button
+                type="button"
+                class="btn btn-outline-secondary shadow-sm"
+                id="nyc-button"
+              >
+                NYC
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary shadow-sm"
+                id="paris-button"
+              >
+                Paris
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary shadow-sm"
+                id="tokyo-button"
+              >
+                Tokyo
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary shadow-sm"
+                id="la-button"
+              >
+                Los Angeles
+              </button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="search"
+                placeholder="City Search"
+                autofocus="on"
+                class="form-control shadow-sm"
+                id="city-input"
+              />
+            </div>
+            <div class="col-3 search-btn">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-outline-secondary shadow-sm"
+              />
+            </div>
+            <div class="col-3 search-btn">
+              <input
+                type="submit"
+                value="Current City"
+                class="form-control btn btn-outline-primary shadow-sm"
+                id="current-button"
+              />
+            </div>
+          </div>
+        </form>
+        <br />
+        <h1 id="city"></h1>
+        <ul>
+          <li id="date"></li>
+          <li id="weather-description"></li>
+        </ul>
+        <br />
+        <div class="row">
+          <div class="col-6">
+            <span class="main-emoji">⛅️</span>
+            <div class="float-left">
+              <span class="temperature" id="temp"></span
+              ><span class="units"><a id="fahrenheit-link">°F</a></span>
+            </div>
+          </div>
+          <div class="col-6 additional-info">
+            <ul>
+              <li>High: <span id="high-temp"></span>°</li>
+              <li>Low: <span id="low-temp"></span>°</li>
+            </ul>
+            <ul>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind-speed"></span>mph</li>
+            </ul>
+          </div>
+        </div>
+        <div class="days">
+          <div class="row">
+            <div class="col-2">
+              Wednesday <br />
+              <div class="week-emojis">⛅️</div>
+              66°
+            </div>
+            <div class="col-2">
+              Thursday <br />
+              <div class="week-emojis">⛅️</div>
+              63°
+            </div>
+            <div class="col-2">
+              Friday <br />
+              <div class="week-emojis">🌧</div>
+              54°
+            </div>
+            <div class="col-2">
+              Saturday <br />
+              <div class="week-emojis">🌧</div>
+              53°
+            </div>
+            <div class="col-2">
+              Sunday <br />
+              <div class="week-emojis">🌧</div>
+              56°
+            </div>
+            <div class="col-2">
+              Monday <br />
+              <div class="week-emojis">🌧</div>
+              56°
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
