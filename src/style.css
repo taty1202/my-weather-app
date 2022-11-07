@@ -36,6 +36,12 @@ li {
     list-style: none;
 }
 
+footer { 
+    text-align: center;
+    font-size: 12px;
+    
+}
+
 .weather-app {
     border: 1px solid #dadde1;
     padding: 15px;
