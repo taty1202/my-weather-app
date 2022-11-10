@@ -68,6 +68,7 @@
                 autofocus="on"
                 class="form-control shadow-sm"
                 id="city-input"
+                autocomplete="off"
               />
             </div>
             <div class="col-3 search-btn">
@@ -88,18 +89,18 @@
           </div>
         </form>
         <br />
+        <div class="overview">
         <h1 id="city"></h1>
         <ul>
           <li id="date"></li>
           <li id="weather-description"></li>
         </ul>
-        <br />
+      </div>
         <div class="row">
           <div class="col-6">
-            <span class="main-emoji">⛅️</span>
-            <div class="float-left">
-              <span class="temperature" id="temp"></span
-              ><span class="units"><a id="fahrenheit-link">°F</a></span>
+            <div class="clearfix weather-temp">
+              <img src="" alt="Clear" id="icon" class="float-left" />
+                <strong id="temp"></strong><span class="units"> <a href="#" id="fahrenheit-link">°F</a>|<a href="#">°C</a></span>
             </div>
           </div>
           <div class="col-6 additional-info">

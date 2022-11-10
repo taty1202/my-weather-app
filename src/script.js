@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -40,6 +41,14 @@ function formatDate(date) {
 
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  return days[day];
+}
+
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temp").innerHTML = Math.round(response.data.main.temp);
@@ -49,6 +58,8 @@ function showWeather(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
+  document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   
 }
 
@@ -66,7 +77,7 @@ function search(event) {
 }
 
 function locationSearch(position) {
-  let apiKey = "be81f193e065bf5feb2d944c7336968b";
+  let apiKey = "b6eb4c341tof04c38a2c7d12bf3f4f58";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude
     }&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`
   axios.get(apiUrl).then(showWeather);
@@ -76,18 +87,6 @@ function locationSearch(position) {
 function currentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(locationSearch);
-}
-
-function changeCelsius(event) {
-  event.preventDefault();
-  let tempChange = document.querySelector("#temp");
-  tempChange.innerHTML = 19;
-}
-
-function changeFahrenheit(event) {
-  event.preventDefault();
-  let tempChange = document.querySelector("#temp");
-  tempChange.innerHTML = 66;
 }
 
 function showNYC(event) {
