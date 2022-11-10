@@ -51,16 +51,18 @@ function formatDay(timestamp) {
 
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temp").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#temp").innerHTML = Math.round(fahrenheitTemperature);
+
+  fahrenheitTemperature = response.data.main.temp;
 
   document.querySelector("#high-temp").innerHTML = Math.round(response.data.main.temp_max);
   document.querySelector("#low-temp").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
+  document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
   document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  
+
 }
 
 function searchCity(city) {
@@ -77,11 +79,10 @@ function search(event) {
 }
 
 function locationSearch(position) {
-  let apiKey = "b6eb4c341tof04c38a2c7d12bf3f4f58";
+  let apiKey = `b6eb4c341tof04c38a2c7d12bf3f4f58`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude
     }&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`
   axios.get(apiUrl).then(showWeather);
-  console.log(locationSearch);
 }
 
 function currentLocation(event) {
@@ -136,11 +137,31 @@ let laButton = document.querySelector("#la-button");
 laButton.addEventListener("click", showLosAngeles);
 
 
-searchCity("Seattle");
+function changeCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temp");
+  celsiusTemp.classList.add("active");
+  fahrenheitTemp.classList.remove("active");
+  let celsiusElement = (fahrenheitTemperature - 32) * 5 / 9;
+  tempElement.innerHTML = Math.round(celsiusElement);
 
+}
 
-/*let fahrenheitTemp = document.querySelector("#fahrenheit-link");
+function changeFahrenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temp");
+  celsiusTemp.classList.remove("active");
+  fahrenheitTemp.classList.add("active");
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+
+}
+
+let fahrenheitTemperature = null;
+
+let fahrenheitTemp = document.querySelector("#fahrenheit-link");
 fahrenheitTemp.addEventListener("click", changeFahrenheit);
 
 let celsiusTemp = document.querySelector("#celsius-link");
-celsiusTemp.addEventListener("click", changeCelsius);*/
+celsiusTemp.addEventListener("click", changeCelsius);
+
+searchCity("Seattle");

@@ -29,7 +29,6 @@ ul {
 
 li {
     color: #7c7c7c;
-    text-transform: capitalize;
     font-size: 16px;
     font-weight: 100;
     height: 19px;
@@ -86,6 +85,7 @@ footer {
   .weather-temp .active {
     color: rgb(33, 33, 33);
     cursor: default;
+    text-decoration: none;
   }
   
   .weather-temp .active:hover {
@@ -93,7 +93,8 @@ footer {
   }
 
 
-.col-2 {
+
+/*  .col-2 {
     text-align: center;
     padding: 10px 5px;
     border-radius: 10px;
@@ -106,7 +107,7 @@ footer {
 .week-emojis {
     font-size: 50px;
     text-align: center;
-}
+}*/
 
 .additional-info {
     position: relative;
