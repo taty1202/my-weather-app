@@ -55,6 +55,7 @@ footer {
 }
 
 
+
 .search-form {
     margin-bottom: 20px;
 }
@@ -65,21 +66,25 @@ footer {
 
 .weather-temp img {
     margin-right: 5px;
-    height: 64px;
-    width: 64px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: -15px;
 }
 
 .weather-temp strong {
     color: #7c7c7c;
-    font-size: 50px;
+    font-size: 48px;
     line-height: 1;
     font-weight: 400;
+    
   }
   
   .weather-temp .units {
     position: relative;
     font-size: 14px;
     top: -34px;
+    left: -15px;
   }
   
   .weather-temp .active {
