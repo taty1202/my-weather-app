@@ -85,8 +85,6 @@ function showWeather(response) {
 
   fahrenheitTemperature = response.data.main.temp;
 
-  document.querySelector("#high-temp").innerHTML = Math.round(response.data.main.temp_max);
-  document.querySelector("#low-temp").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
