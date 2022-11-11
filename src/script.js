@@ -41,12 +41,26 @@ function formatDate(timestamp) {
 
 }
 
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sat", "Sun", "Mon", "Tues", "Wed", "Thurs"];
 
-  return days[day];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML + 
+    `
+    <div class="col-2">
+    <div class="forecast-day">${day}</div>
+    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42"/>
+    <div class="forecast-temp">
+      <span class="forecast-temp-max">18°</span> <span class="forecast-temp-min">12°</span>
+    </div>
+  </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML
+    ;
 }
 
 function showWeather(response) {
@@ -165,3 +179,4 @@ let celsiusTemp = document.querySelector("#celsius-link");
 celsiusTemp.addEventListener("click", changeCelsius);
 
 searchCity("Seattle");
+showForecast();
