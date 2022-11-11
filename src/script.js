@@ -44,7 +44,7 @@ function formatDate(timestamp) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
   return days[day];
 }
@@ -59,7 +59,7 @@ function showWeather(response) {
   document.querySelector("#low-temp").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
   document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 

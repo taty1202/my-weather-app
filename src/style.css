@@ -38,6 +38,11 @@ li {
     padding:0;
 }
 
+li:first-letter{
+    text-transform: capitalize;
+
+}
+
 footer { 
     text-align: center;
     font-size: 12px;
@@ -117,5 +122,6 @@ footer {
 .additional-info {
     position: relative;
     left: 60px;
+    
 
 }
