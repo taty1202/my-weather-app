@@ -103,25 +103,30 @@ footer {
   }
 
 
-
-/*  .col-2 {
-    text-align: center;
-    padding: 10px 5px;
-    border-radius: 10px;
-    margin: 0 auto;
-    display: block;
-    color: #7c7c7c;
-    line-height: 55px;
-}
-
-.week-emojis {
-    font-size: 50px;
-    text-align: center;
-}*/
-
 .additional-info {
     position: relative;
     left: 60px;
-    
+}
 
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+
+}
+
+.forecast-day {
+font-size: 16px;
+opacity: 0.5;
+}
+
+.forecast-temp {
+font-size: 13px;
+}
+
+.forecast-temp-max{
+    opacity: 0.7;
+}
+.forecast-temp-min {
+opacity: 0.5;
 }
