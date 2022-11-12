@@ -73,29 +73,38 @@ function showForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiKey = `63214c4281922e3bb72fdf12dada7734`;
+  let apiKey = "be81f193e065bf5feb2d944c7336968b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showForecast);
 }
 
 function showWeather(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temp").innerHTML = Math.round(fahrenheitTemperature);
+  let cityElement = document.querySelector("#city");
+  let dateElement = document.querySelector("#date");
+  let tempElement = document.querySelector("#temp");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind-speed");
+  let descriptionElement = document.querySelector("#weather-description")
+  let iconElement = document.querySelector("#icon");
+
+  cityElement.innerHTML = response.data.name;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
 
   fahrenheitTemperature = response.data.main.temp;
 
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
-  document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord)
 }
 
 function searchCity(city) {
-  let apiKey = `be81f193e065bf5feb2d944c7336968b`;
+  let apiKey = "be81f193e065bf5feb2d944c7336968b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
@@ -108,7 +117,7 @@ function search(event) {
 }
 
 function locationSearch(position) {
-  let apiKey = `be81f193e065bf5feb2d944c7336968b`;
+  let apiKey = "be81f193e065bf5feb2d944c7336968b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude
     }&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`
   axios.get(apiUrl).then(showWeather);
@@ -148,13 +157,13 @@ let currentTime = new Date();
 fullDate.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", search,);
 
 let currentCityButton = document.querySelector("#current-button");
-currentCityButton.addEventListener("click", currentLocation);
+currentCityButton.addEventListener("click", currentLocation,);
 
 let nycButton = document.querySelector("#nyc-button");
-nycButton.addEventListener("click", showNYC);
+nycButton.addEventListener("click", showNYC,);
 
 let parisButton = document.querySelector("#paris-button");
 parisButton.addEventListener("click", showParis);
