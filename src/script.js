@@ -89,9 +89,9 @@ function showWeather(response) {
 
   cityElement.innerHTML = response.data.name;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  tempElement.innerHTML = Math.round(fahrenheitTemperature);
-
+  
   fahrenheitTemperature = response.data.main.temp;
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
 
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
