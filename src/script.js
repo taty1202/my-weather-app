@@ -175,7 +175,7 @@ let laButton = document.querySelector("#la-button");
 laButton.addEventListener("click", showLosAngeles);
 
 
-function changeCelsius(event) {
+/*function changeCelsius(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#temp");
   celsiusTemp.classList.add("active");
@@ -185,7 +185,7 @@ function changeCelsius(event) {
 
 }
 
-function changeFahrenheit(event) {
+/*function changeFahrenheit(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#temp");
   celsiusTemp.classList.remove("active");
@@ -194,12 +194,12 @@ function changeFahrenheit(event) {
 
 }
 
-let fahrenheitTemperature = null;
+//let fahrenheitTemperature = null;
 
-let fahrenheitTemp = document.querySelector("#fahrenheit-link");
+//let fahrenheitTemp = document.querySelector("#fahrenheit-link");
 fahrenheitTemp.addEventListener("click", changeFahrenheit);
 
-let celsiusTemp = document.querySelector("#celsius-link");
-celsiusTemp.addEventListener("click", changeCelsius);
+//let celsiusTemp = document.querySelector("#celsius-link");
+celsiusTemp.addEventListener("click", changeCelsius);*/
 
 searchCity("Seattle");
